@@ -37,7 +37,13 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>Doctor Manager</p>
                   </a>
-                </li>           
+                </li>   
+                <li class="nav-item">
+                  <a href="{{route('occupation.index')}}" class="nav-link ">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Occupation Manager</p>
+                    </a>
+                  </li>                 
 
               </li>
             </ul>

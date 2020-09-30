@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Doctor;
 use App\Models\DoctorType;
-class DoctorController extends Controller
+
+class OccupationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        
-        $doctors = Doctor::all();
-        return view('admin.doctor.show',compact('doctors'));
+        $occupations = DoctorType::all();
+        return view('admin.occupation.show',compact('occupations'));
     }
 
     /**
@@ -28,7 +27,7 @@ class DoctorController extends Controller
     public function create()
     {
         $occupations = DoctorType::all();
-        return view('admin.doctor.create',compact('occupations'));
+        return view('admin.occupation.create',compact('occupations'));
     }
 
     /**
@@ -41,26 +40,13 @@ class DoctorController extends Controller
     {
         $this->validate($request,[
             'name' =>'required',
-            'occupation' =>'required',
-            'description' =>'required',
         ]);
 
-        if($request->status==NULL){
-            $status = 0;
-        }else{
-            $status = 1;
-        }
-       
+        $occupation = new DoctorType;
+        $occupation->name = $request->name;
+        $occupation->save();
 
-        $doctor = new Doctor;
-        $doctor->name = $request->name;
-        $doctor->doctor_type_id = $request->occupation;
-        $doctor->description = $request->description;
-        $doctor->status = $status;
-
-        $doctor->save();
-
-        return redirect(route('doctor.index'))->with('message', 'Create Successfull !');
+        return redirect(route('occupation.index'))->with('message', 'Create Successfull !');
     }
 
     /**
@@ -82,9 +68,8 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-        $doctor = Doctor::where('id', $id)->first();
-        $occupations = DoctorType::all();
-        return view('admin.doctor.edit',compact('doctor','occupations'));
+        $occupation = DoctorType::where('id', $id)->first();
+        return view('admin.occupation.edit',compact('occupation'));
     }
 
     /**
@@ -98,26 +83,12 @@ class DoctorController extends Controller
     {
         $this->validate($request,[
             'name' =>'required',
-            'occupation' =>'required',
-            'description' =>'required',
         ]);
 
-        if($request->status==NULL){
-            $status = 0;
-        }else{
-            $status = 1;
-        }
-       
-
-        $doctor = Doctor::find($id);
-        $doctor->name = $request->name;
-        $doctor->doctor_type_id = $request->occupation;
-        $doctor->description = $request->description;
-        $doctor->status = $status;
-
-        $doctor->save();
-
-        return redirect(route('doctor.index'))->with('message', 'Edit Successfull !');
+        $occupation = DoctorType::find($id);
+        $occupation->name = $request->name;
+        $occupation->save();
+        return redirect(route('occupation.index'))->with('message', 'Edit Successfull !');
     }
 
     /**
@@ -128,7 +99,7 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        Doctor::where('id', $id)->delete();
+        DoctorType::where('id', $id)->delete();
         return redirect()->back()->with('message', 'Delete Successfull !'); 
     }
 }

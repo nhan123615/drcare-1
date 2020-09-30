@@ -29,6 +29,8 @@ class DoctorFactory extends Factory
             },
             'name' => $this->faker->firstName . ' ' . $this->faker->lastName,
             'photo' => Storage::url('public/images/' . random_int(31, 44) . '.png'),
+            'description'=> $this->faker->text($maxNbChars = 20),
+            'status'=>$this->faker->numberBetween(0,1),
         ];
     }
 }

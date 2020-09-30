@@ -35,23 +35,24 @@
     <!-- /.card-header -->
     <!-- form start -->
     @include('admin.includes.messages')
-    <form role="form" action="{{ route('doctor.update',$doctor->id)}}" method="POST">
+    <form role="form" action="{{ route('doctor.store')}}" method="POST">
       {{csrf_field()}}
-      {{method_field('PATCH')}}
+     
 
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
               <label for="name">Doctor Name</label>
-            <input type="text" class="form-control"  placeholder="Doctor Name" name="name" value="{{$doctor->name}}">
+            <input type="text" class="form-control"  placeholder="Doctor Name" name="name" >
             </div>
     
             <div class="form-group">
               <label for="occupation">Occupation</label>
               <select name="occupation" id="" class="form-control">
+                <option value="">Select Occupation</option>
                 @foreach($occupations as $occupation)
-                <option value="{{$occupation->id}}" @if($doctor->doctor_type_id == $occupation->id)selected="selected"@endif>{{$occupation->name}}</option>
+                <option value="{{$occupation->id}}">{{$occupation->name}}</option>
                 @endforeach
               </select>
                
@@ -73,8 +74,7 @@
               <br>
               <br>
             <div class="form-check">
-              <input value="1" type="checkbox" class="form-check-input" name="status" 
-              @if($doctor->status==1) checked @endif>
+              <input value="1" type="checkbox" class="form-check-input" name="status">
               <label class="form-check-label" for="status" >Pulish</label>
             </div>
           </div>     
@@ -100,7 +100,7 @@
           <div class="mb-3">
             <textarea class="textarea" placeholder="Place some text here" name="description"
                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                    {{$doctor->description}}      
+                  
             </textarea>
           </div>
         
