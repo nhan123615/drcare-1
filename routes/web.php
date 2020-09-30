@@ -59,4 +59,13 @@ Route::get('pricing', function() {
     return view('drcare.pricing');
 })->name('pricing');
 
+//admin
 
+
+
+Route::get('manager', function() {
+    return view('admin.home');
+});
+
+Route::resource('/admin/appointment', 'App\Http\Controllers\Admin\AppointmentController');
+Route::resource('/admin/doctor', 'App\Http\Controllers\Admin\DoctorController');

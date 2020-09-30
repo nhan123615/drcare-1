@@ -6,6 +6,9 @@ use App\Models\DiseaseType;
 use Database\Factories\TestingFactory;
 use Illuminate\Database\Seeder;
 
+
+
+use App\Models\admin\appointment;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -21,5 +24,6 @@ class DatabaseSeeder extends Seeder
             DoctorTypeSeeder::class,
             CategorySeeder::class
         ]);
+        appointment::factory(20)->create();
     }
 }
