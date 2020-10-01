@@ -56,6 +56,12 @@
                           <p>Disease Manager</p>
                         </a>
                       </li>    
+                      <li class="nav-item">
+                        <a href="{{route('research.index')}}" class="nav-link ">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Research Manager</p>
+                          </a>
+                        </li>  
 
               </li>
             </ul>

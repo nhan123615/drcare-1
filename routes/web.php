@@ -72,3 +72,4 @@ Route::resource('/admin/doctor', 'App\Http\Controllers\Admin\DoctorController');
 Route::resource('/admin/occupation', 'App\Http\Controllers\Admin\OccupationController');
 Route::resource('/admin/type', 'App\Http\Controllers\Admin\TypeController');
 Route::resource('/admin/disease', 'App\Http\Controllers\Admin\DiseaseController');
+Route::resource('/admin/research', 'App\Http\Controllers\Admin\ResearchController');
