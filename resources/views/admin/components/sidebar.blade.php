@@ -43,7 +43,19 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>Occupation Manager</p>
                     </a>
-                  </li>                 
+                  </li>        
+                  <li class="nav-item">
+                    <a href="{{route('type.index')}}" class="nav-link ">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Disease Type Manager</p>
+                      </a>
+                    </li>            
+                    <li class="nav-item">
+                      <a href="{{route('disease.index')}}" class="nav-link ">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Disease Manager</p>
+                        </a>
+                      </li>    
 
               </li>
             </ul>
