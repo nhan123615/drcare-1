@@ -58,6 +58,7 @@
                   <th>Title</th>    
                   <th>Author</th>       
                   <th>Subtitle</th>  
+                  <th>Status</th>  
                   <th>Edit</th>  
                   <th>Delete</th>      
                 </tr>
@@ -76,6 +77,13 @@
                     <td>{{$research->title}}</td>
                     <td>{{$research->author}}</td>
                     <td>{{$research->subtitle}}</td>
+                    <td>
+                      @if($research->status==1)
+                      Pulish
+                      @else
+                      Private
+                      @endif
+                    </td>
                     <td>
                       <a href="{{route('research.edit', $research->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>            
                     </td>
@@ -107,6 +115,7 @@
                   <th>Title</th>    
                   <th>Author</th>       
                   <th>Subtitle</th>  
+                  <th>Status</th> 
                   <th>Edit</th>  
                   <th>Delete</th>    
                 </tr>

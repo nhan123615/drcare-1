@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 
 
 use App\Models\admin\appointment;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -22,7 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DiseaseTypeSeeder::class,
             DoctorTypeSeeder::class,
-            CategorySeeder::class
+            CategorySeeder::class,
+            ImageSeeder::class
         ]);
         appointment::factory(20)->create();
     }

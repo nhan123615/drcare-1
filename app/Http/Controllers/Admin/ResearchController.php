@@ -27,7 +27,9 @@ class ResearchController extends Controller
      */
     public function create()
     {
-        //
+      
+        $types = DiseaseType::all();
+        return view('admin.research.create',compact('types'));
     }
 
     /**
@@ -38,7 +40,29 @@ class ResearchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'type' =>'required',
+            'title' =>'required',
+            'author' =>'required',
+            'subtitle' =>'required',
+            'content' =>'required',
+        ]);
+
+        if($request->status==NULL){
+            $status = 0;
+        }else{
+            $status = 1;
+        }
+       
+        $research = new Research;
+        $research->disease_type_id = $request->type;
+        $research->title = $request->title;
+        $research->author = $request->author;
+        $research->subtitle = $request->subtitle;
+        $research->content = $request->content;
+        $research->status = $status;
+        $research->save();
+        return redirect(route('research.index'))->with('message', 'Edit Successfull !');
     }
 
     /**
@@ -60,7 +84,9 @@ class ResearchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $research = Research::where('id', $id)->first();
+        $types = DiseaseType::all();
+        return view('admin.research.edit',compact('research','types'));
     }
 
     /**
@@ -72,7 +98,29 @@ class ResearchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'type' =>'required',
+            'title' =>'required',
+            'author' =>'required',
+            'subtitle' =>'required',
+            'content' =>'required',
+        ]);
+
+        if($request->status==NULL){
+            $status = 0;
+        }else{
+            $status = 1;
+        }
+       
+        $research = Research::find($id);
+        $research->disease_type_id = $request->type;
+        $research->title = $request->title;
+        $research->author = $request->author;
+        $research->subtitle = $request->subtitle;
+        $research->content = $request->content;
+        $research->status = $status;
+        $research->save();
+        return redirect(route('research.index'))->with('message', 'Edit Successfull !');
     }
 
     /**
@@ -83,6 +131,7 @@ class ResearchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Research::where('id', $id)->delete();
+        return redirect()->back()->with('message', 'Delete Successfull !'); 
     }
 }

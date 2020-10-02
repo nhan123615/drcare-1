@@ -21,8 +21,9 @@ class CreateResearchTable extends Migration
             $table->string('title', 255);
             $table->string('author', 255);
             $table->text('subtitle');
-            $table->json('content');
-            $table->dateTime('published_at');
+            $table->text('content');
+            $table->boolean('status');
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });
     }

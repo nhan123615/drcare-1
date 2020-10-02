@@ -63,13 +63,17 @@ Route::get('pricing', function() {
 
 
 
-Route::get('manager', function() {
+Route::get('/admin/home', function() {
     return view('admin.home');
-});
-
-Route::resource('/admin/appointment', 'App\Http\Controllers\Admin\AppointmentController');
-Route::resource('/admin/doctor', 'App\Http\Controllers\Admin\DoctorController');
-Route::resource('/admin/occupation', 'App\Http\Controllers\Admin\OccupationController');
-Route::resource('/admin/type', 'App\Http\Controllers\Admin\TypeController');
-Route::resource('/admin/disease', 'App\Http\Controllers\Admin\DiseaseController');
-Route::resource('/admin/research', 'App\Http\Controllers\Admin\ResearchController');
+})->name('admin');
+//contacts
+Route::resource('/admin/contacts/appointment', 'App\Http\Controllers\Admin\AppointmentController');
+//doctors
+Route::resource('/admin/doctors/doctor', 'App\Http\Controllers\Admin\DoctorController');
+Route::resource('/admin/doctors/occupation', 'App\Http\Controllers\Admin\OccupationController');
+//researches
+Route::resource('/admin/researches/type', 'App\Http\Controllers\Admin\TypeController');
+Route::resource('/admin/researches/disease', 'App\Http\Controllers\Admin\DiseaseController');
+Route::resource('/admin/researches/research', 'App\Http\Controllers\Admin\ResearchController');
+//products
+Route::resource('/admin/products/category', 'App\Http\Controllers\Admin\CategoryController');
