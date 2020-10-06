@@ -11,7 +11,9 @@
                         there
                         live the blind texts.</p>
                 </div>
-                <form action="#" class="appointment-form ftco-animate">
+                <form class="appointment-form ftco-animate" action="{{ route('appointment.store')}}" method="POST">
+                    {{csrf_field()}}
+
                     <div class="d-md-flex">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="First Name">
@@ -26,12 +28,11 @@
                                 <div class="select-wrap">
                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                     <select name="" id="" class="form-control">
-                                        <option value="">Select Your Services</option>
-                                        <option value="">Neurology</option>
-                                        <option value="">Cardiology</option>
-                                        <option value="">Dental</option>
-                                        <option value="">Ophthalmology</option>
-                                        <option value="">Other Services</option>
+                                        <option value="">Select Doctors</option>
+
+                                      {{--     @foreach($doctors as $doctor)
+                                            <option value="{{$doctor->id}}">{{$doctor->name}}</option>
+                                          @endforeach --}}
                                     </select>
                                 </div>
                             </div>

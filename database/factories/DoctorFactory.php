@@ -28,7 +28,7 @@ class DoctorFactory extends Factory
                 return DoctorType::factory()->create()->id;
             },
             'name' => $this->faker->firstName . ' ' . $this->faker->lastName,
-            'photo' => Storage::url('public/images/' . random_int(31, 44) . '.png'),
+            'photo' => Storage::url('public/doctors/' . random_int(1, 28) . '.png'),
             'description'=> $this->faker->text($maxNbChars = 20),
             'status'=>$this->faker->numberBetween(0,1),
         ];

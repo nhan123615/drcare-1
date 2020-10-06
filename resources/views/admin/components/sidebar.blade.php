@@ -102,8 +102,8 @@
           </li>
             {{--  Research --}}
           {{--   Product --}}
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview {{ (request()->is('admin/products*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->is('admin/products*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-shopping-cart"></i>
               <p>
                 Products
@@ -113,19 +113,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('category.index')}}" class="nav-link ">
+                <a href="{{route('category.index')}}" class="nav-link {{ (request()->is('admin/products/category')) ? 'active' : '' }}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Categories</p>
                   </a>
                 </li>      
                 <li class="nav-item">
-                  <a href="" class="nav-link ">
+                  <a href="{{route('image.index')}}" class="nav-link {{ (request()->is('admin/products/image')) ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Images</p>
                     </a>
                 </li>   
                 <li class="nav-item">
-                  <a href="" class="nav-link ">
+                  <a href="{{route('product.index')}}" class="nav-link {{ (request()->is('admin/products/product')) ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Products</p>
                     </a>

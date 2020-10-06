@@ -37,11 +37,15 @@ Route::get('/products', function() {
     return view('drcare.pricing');
 });
 
+Route::resource('/appointment', 'App\Http\Controllers\Admin\AppointmentController');
 
+/* Route::get('/appointment',[DrCareController::class, 'doctor'])->name('appointment'); */
+/* Route::get('/appointment',[DrCareController::class, 'appointment'])->name('appointment'); */
 
-Route::get('/appointment', function() {
-    return view('drcare.appointment');
-})->name('appointment');
+/* Route::get('/appointment', function() { 
+    return view('drcare.appointment',compact('doctors'));
+})->name('appointment'); */
+
 Route::get('/blog', function() {
     return view('drcare.blog');
 })->name('blog');
@@ -77,3 +81,5 @@ Route::resource('/admin/researches/disease', 'App\Http\Controllers\Admin\Disease
 Route::resource('/admin/researches/research', 'App\Http\Controllers\Admin\ResearchController');
 //products
 Route::resource('/admin/products/category', 'App\Http\Controllers\Admin\CategoryController');
+Route::resource('/admin/products/image', 'App\Http\Controllers\Admin\ImageController');
+Route::resource('/admin/products/product', 'App\Http\Controllers\Admin\ProductController');

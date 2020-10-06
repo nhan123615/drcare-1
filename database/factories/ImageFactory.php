@@ -23,12 +23,12 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'image_main' => Storage::url('public/images/' . random_int(1, 30) . '.png'),
-            'image_front' => Storage::url('public/images/' . random_int(1, 30) . '.png'),
-            'image_back' => Storage::url('public/images/' . random_int(1, 30) . '.png'),
-            'image_right' => Storage::url('public/images/' . random_int(1, 30) . '.png'),
-            'image_left' => Storage::url('public/images/' . random_int(1, 30) . '.png'),
-            'product_id'=> $this->faker->unique()->numberBetween(1,30),
+            'image_main' => Storage::url('public/products/' . random_int(1, 48) . '.png'),
+            'image_front' => Storage::url('public/products/' . random_int(1, 48) . '.png'),
+            'image_back' => Storage::url('public/products/' . random_int(1, 48) . '.png'),
+            'image_right' => Storage::url('public/products/' . random_int(1, 48) . '.png'),
+            'image_left' => Storage::url('public/products/' . random_int(1, 48) . '.png'),
+            'product_id'=> $this->faker->unique()->numberBetween(1,10),
         ];
     }
 }
