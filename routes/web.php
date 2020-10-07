@@ -37,10 +37,10 @@ Route::get('/products', function() {
     return view('drcare.pricing');
 });
 
-Route::resource('/appointment', 'App\Http\Controllers\Admin\AppointmentController');
+/* Route::resource('/appointment', 'App\Http\Controllers\Admin\AppointmentController'); */
 
 /* Route::get('/appointment',[DrCareController::class, 'doctor'])->name('appointment'); */
-/* Route::get('/appointment',[DrCareController::class, 'appointment'])->name('appointment'); */
+Route::get('/appointment',[DrCareController::class, 'appointment'])->name('appointment');
 
 /* Route::get('/appointment', function() { 
     return view('drcare.appointment',compact('doctors'));

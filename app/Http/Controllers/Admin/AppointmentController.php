@@ -20,13 +20,15 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        if (request()->is('appointment')) {
+     /*    if (request()->is('appointment')) {
             $doctors =   Doctor::all();
             return view('drcare.appointment',compact('doctors'));
         }else{   
             $appointments =   appointment::all();
             return view('admin.appointment.show',compact('appointments'));
         }
+        $appointments =   appointment::all();
+        return view('admin.appointment.show',compact('appointments')); */
         $appointments =   appointment::all();
         return view('admin.appointment.show',compact('appointments'));
     }
