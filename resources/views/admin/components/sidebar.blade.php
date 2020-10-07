@@ -34,7 +34,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{route('appointment.index')}}" class="nav-link {{ (request()->is('admin/contacts/appointment')) ? 'active' : '' }}">
+                    <a href="{{route('appointment.index')}}" class="nav-link {{ (request()->is('admin/contacts/appointment*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Contact Manager</p>
                       </a>
@@ -53,14 +53,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('occupation.index')}}" class="nav-link {{ (request()->is('admin/doctors/occupation')) ? 'active' : '' }}">
+                  <a href="{{route('occupation.index')}}" class="nav-link {{ (request()->is('admin/doctors/occupation*')) ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Occupation Manager</p>
                     </a>
                   </li>         
 
                   <li class="nav-item">
-                    <a href="{{route('doctor.index')}}" class="nav-link {{ (request()->is('admin/doctors/doctor')) ? 'active' : '' }}">
+                    <a href="{{route('doctor.index')}}" class="nav-link {{ (request()->is('admin/doctors/doctor*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Doctor Manager</p>
                       </a>
@@ -81,19 +81,19 @@
             </a>
             <ul class="nav nav-treeview">  
                   <li class="nav-item">
-                    <a href="{{route('type.index')}}" class="nav-link {{ (request()->is('admin/researches/type')) ? 'active' : '' }}">
+                    <a href="{{route('type.index')}}" class="nav-link {{ (request()->is('admin/researches/type*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Disease Type Manager</p>
                       </a>
                     </li>    
                     <li class="nav-item">
-                      <a href="{{route('disease.index')}}" class="nav-link {{ (request()->is('admin/researches/disease')) ? 'active' : '' }}">
+                      <a href="{{route('disease.index')}}" class="nav-link {{ (request()->is('admin/researches/disease*')) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Disease Manager</p>
                         </a>
                       </li>   
                       <li class="nav-item">
-                        <a href="{{route('research.index')}}" class="nav-link {{ (request()->is('admin/researches/research')) ? 'active' : '' }}">
+                        <a href="{{route('research.index')}}" class="nav-link {{ (request()->is('admin/researches/research*')) ? 'active' : '' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Research Manager</p>
                           </a>
@@ -113,19 +113,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('category.index')}}" class="nav-link {{ (request()->is('admin/products/category')) ? 'active' : '' }}">
+                <a href="{{route('category.index')}}" class="nav-link {{ (request()->is('admin/products/category*')) ? 'active' : '' }}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Categories</p>
                   </a>
                 </li>      
                 <li class="nav-item">
-                  <a href="{{route('image.index')}}" class="nav-link {{ (request()->is('admin/products/image')) ? 'active' : '' }}">
+                  <a href="{{route('image.index')}}" class="nav-link {{ (request()->is('admin/products/image*')) ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Images</p>
                     </a>
                 </li>   
                 <li class="nav-item">
-                  <a href="{{route('product.index')}}" class="nav-link {{ (request()->is('admin/products/product')) ? 'active' : '' }}">
+                  <a href="{{route('product.index')}}" class="nav-link {{ (request()->is('admin/products/product*')) ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Products</p>
                     </a>

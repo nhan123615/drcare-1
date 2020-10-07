@@ -35,7 +35,7 @@
     <!-- /.card-header -->
     <!-- form start -->
     @include('admin.includes.messages')
-    <form role="form" action="{{ route('doctor.update',$doctor->id)}}" method="POST">
+    <form role="form" action="{{ route('doctor.update',$doctor->id)}}" method="POST" enctype="multipart/form-data">
       {{csrf_field()}}
       {{method_field('PATCH')}}
 
@@ -60,24 +60,31 @@
 
           </div>
   
-          <div class="col-lg-6">         
-            <div class="form-group">
-              <label for="exampleInputFile">File input</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="image">
-                  <label class="custom-file-label" for="image" name="image">Input Doctor Image</label>
-                </div>
+          <div class="col-lg-6 pl-5">         
+            <div class="row">
+
+              <div class="col-lg-3">
+                <label  >Doctor Image</label>
+                <img src="{{$doctor->photo}}" alt="" width="300" class="img-fluid img-thumbnail  rounded">
               </div>
-            </div>
-              <br>
-              <br>
-            <div class="form-check">
-              <input value="1" type="checkbox" class="form-check-input" name="status" 
-              @if($doctor->status==1) checked @endif>
-              <label class="form-check-label" for="status" >Pulish</label>
+
+              <div class="col-lg-9 mt-5 pl-5">   
+                 <div class="form-group">
+                  <input type="file"  name="image">
+                  <label for="image" >Input Doctor Image</label>
+                </div>
+
+                <div class="form-check">
+                  <input value="1" type="checkbox" class="form-check-input" name="status" 
+                  @if($doctor->status==1) checked @endif>
+                  <label class="form-check-label" for="status" >Pulish</label>
+                </div>
+               
+              </div> 
             </div>
           </div>     
+
+          
         </div>
         
       </div>

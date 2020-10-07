@@ -35,7 +35,7 @@
     <!-- /.card-header -->
     <!-- form start -->
     @include('admin.includes.messages')
-    <form role="form" action="{{ route('doctor.store')}}" method="POST">
+    <form role="form" action="{{ route('doctor.store')}}" method="POST" enctype="multipart/form-data">
       {{csrf_field()}}
      
 
@@ -54,22 +54,16 @@
                 @foreach($occupations as $occupation)
                 <option value="{{$occupation->id}}">{{$occupation->name}}</option>
                 @endforeach
-              </select>
-               
-         
+              </select>   
             </div>
-
           </div>
+
   
-          <div class="col-lg-6">         
-            <div class="form-group">
-              <label for="exampleInputFile">File input</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="image">
-                  <label class="custom-file-label" for="image" name="image">Input Doctor Image</label>
-                </div>
-              </div>
+  
+          <div class="col-lg-6 mt-4 pl-5">         
+            <div class="form-group pt-2">        
+                  <input type="file"  name="image">
+                  <label  for="image" >Input Doctor Image</label>
             </div>
               <br>
               <br>

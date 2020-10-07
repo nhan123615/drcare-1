@@ -35,7 +35,7 @@
     <!-- /.card-header -->
     <!-- form start -->
     @include('admin.includes.messages')
-    <form role="form" action="{{ route('research.store')}}" method="POST">
+    <form role="form" action="{{ route('research.store')}}" method="POST" enctype="multipart/form-data">
       {{csrf_field()}}
 
       <div class="card-body">
@@ -68,25 +68,15 @@
             </div>
           </div>
   
-          <div class="col-lg-6">         
-            <div class="form-group">
-              <label for="exampleInputFile1">Image</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="image">
-                  <label class="custom-file-label" for="image" >Research Image</label>
-                </div>
-              </div>
+          <div class="col-lg-6 pt-4 pl-5">         
+            <div class="form-group pt-3">
+                  <input type="file" name="image">
+                  <label  for="image" >Research Image</label>       
             </div>
 
-            <div class="form-group">
-              <label for="exampleInputFile">Video</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="video">
-                  <label class="custom-file-label" for="image" name="video">Video Image</label>
-                </div>
-              </div>
+            <div class="form-group pt-4">
+                  <input type="file" name="video">
+                  <label  for="video" name="video">Video Image</label>
             </div>
 
               <br>

@@ -46,7 +46,27 @@ class ResearchController extends Controller
             'author' =>'required',
             'subtitle' =>'required',
             'content' =>'required',
+            'image' =>'required',
         ]);
+        $research = new Research;
+        
+        if($request->hasFile('image')){
+   
+            $image_save = $request->image->store('public/research');
+            $image_split = explode("/", $image_save);
+            $image_url =  '/storage/research/'.$image_split[2];
+            $research->thumbnail = $image_url;
+     
+          
+        }
+
+        if($request->hasFile('video')){
+   
+            $image_save = $request->video->store('public/videos');
+            $image_split = explode("/", $image_save);
+            $image_url =  '/storage/videos/'.$image_split[2];
+            $research->video = $image_url;
+        }
 
         if($request->status==NULL){
             $status = 0;
@@ -54,7 +74,7 @@ class ResearchController extends Controller
             $status = 1;
         }
        
-        $research = new Research;
+   
         $research->disease_type_id = $request->type;
         $research->title = $request->title;
         $research->author = $request->author;
@@ -105,6 +125,25 @@ class ResearchController extends Controller
             'subtitle' =>'required',
             'content' =>'required',
         ]);
+        $research = Research::find($id);
+
+        if($request->hasFile('image')){
+   
+            $image_save = $request->image->store('public/research');
+            $image_split = explode("/", $image_save);
+            $image_url =  '/storage/research/'.$image_split[2];
+            $research->thumbnail = $image_url;
+     
+          
+        }
+
+        if($request->hasFile('video')){
+   
+            $image_save = $request->video->store('public/videos');
+            $image_split = explode("/", $image_save);
+            $image_url =  '/storage/videos/'.$image_split[2];
+            $research->video = $image_url;
+        }
 
         if($request->status==NULL){
             $status = 0;
@@ -112,7 +151,7 @@ class ResearchController extends Controller
             $status = 1;
         }
        
-        $research = Research::find($id);
+    
         $research->disease_type_id = $request->type;
         $research->title = $request->title;
         $research->author = $request->author;

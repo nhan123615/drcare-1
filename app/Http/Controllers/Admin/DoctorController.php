@@ -43,7 +43,19 @@ class DoctorController extends Controller
             'name' =>'required',
             'occupation' =>'required',
             'description' =>'required',
+            'image' =>'required',
         ]);
+
+        $doctor = new Doctor;
+
+        if($request->hasFile('image')){
+   
+            $image_save = $request->image->store('public/doctors');
+            $image_split = explode("/", $image_save);
+            $image_url =  '/storage/doctors/'.$image_split[2];
+            $doctor->photo = $image_url;
+          
+        }
 
         if($request->status==NULL){
             $status = 0;
@@ -52,7 +64,7 @@ class DoctorController extends Controller
         }
        
 
-        $doctor = new Doctor;
+        
         $doctor->name = $request->name;
         $doctor->doctor_type_id = $request->occupation;
         $doctor->description = $request->description;
@@ -102,6 +114,17 @@ class DoctorController extends Controller
             'description' =>'required',
         ]);
 
+        $doctor = Doctor::find($id);
+         
+        if($request->hasFile('image')){
+   
+            $image_save = $request->image->store('public/doctors');
+            $image_split = explode("/", $image_save);
+            $image_url =  '/storage/doctors/'.$image_split[2];
+            $doctor->photo = $image_url;
+          
+        }
+
         if($request->status==NULL){
             $status = 0;
         }else{
@@ -109,7 +132,7 @@ class DoctorController extends Controller
         }
        
 
-        $doctor = Doctor::find($id);
+    
         $doctor->name = $request->name;
         $doctor->doctor_type_id = $request->occupation;
         $doctor->description = $request->description;

@@ -35,7 +35,7 @@
     <!-- /.card-header -->
     <!-- form start -->
     @include('admin.includes.messages')
-    <form role="form" action="{{ route('research.update',$research->id)}}" method="POST">
+    <form role="form" action="{{ route('research.update',$research->id)}}" method="POST" enctype="multipart/form-data">
       {{csrf_field()}}
       {{method_field('PATCH')}}
 
@@ -68,33 +68,38 @@
             </div>
           </div>
   
-          <div class="col-lg-6">         
-            <div class="form-group">
-              <label for="exampleInputFile1">Image</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="image">
-                  <label class="custom-file-label" for="image" >Research Image</label>
+          <div class="col-lg-6 pl-5">         
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="research-img">
+                  <label  >Research Image</label>
+                  <img src="{{$research->thumbnail}}" alt="" width="300" class="img-fluid img-thumbnail  rounded">
+                </div> 
+              </div>
+
+              <div class="col-lg-9 pt-5">
+                <div class="form-group">
+                  <input type="file"  name="image">
+                  <label for="image">Research Image</label>  
                 </div>
+
+                <div class="form-group">     
+                  <input type="file"  name="video">
+                  <label  for="video">Video Image</label>
+                </div>
+
+       
+              <div class="form-check">
+                <input value="1" type="checkbox" class="form-check-input" name="status" 
+                @if($research->status==1) checked @endif>
+                <label class="form-check-label" for="status" >Pulish</label>
+              </div>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="exampleInputFile">Video</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="video">
-                  <label class="custom-file-label" for="video" name="video">Video Image</label>
-                </div>
-              </div>
-            </div>
-
-              <br>
-              <br>
-            <div class="form-check">
-              <input value="1" type="checkbox" class="form-check-input" name="status" 
-              @if($research->status==1) checked @endif>
-              <label class="form-check-label" for="status" >Pulish</label>
+            <div class="research-video text-center d-flex" style=" justify-content: space-around; align-items: center;">
+              <label >Research Video</label>  
+              <video src="{{$research->video}}" controls width="400" height="200"></video>
             </div>
           </div>     
         </div>

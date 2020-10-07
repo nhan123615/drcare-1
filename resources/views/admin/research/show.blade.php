@@ -53,8 +53,7 @@
                 <tr>
                   <th>S.No</th>
                   <th>Disease Type</th>
-                  <th>Image</th>
-                  <th>Video</th>       
+                  <th>Image</th> 
                   <th>Title</th>    
                   <th>Author</th>       
                   <th>Subtitle</th>  
@@ -72,8 +71,10 @@
                          Illuminate\Support\Facades\DB::table('disease_types')->find($research->disease_type_id)->name                    
                         }}
                     </td>
-                    <td>{{$research->thumbnail}}</td>
-                    <td>{{$research->video}}</td>
+                    <td class="text-center">
+                      <img src="{{$research->thumbnail}}" alt="" width="150" class="img-fluid img-thumbnail  rounded">
+                      
+                    </td>
                     <td>{{$research->title}}</td>
                     <td>{{$research->author}}</td>
                     <td>{{$research->subtitle}}</td>
@@ -111,7 +112,6 @@
                   <th>S.No</th>
                   <th>Disease Type</th>
                   <th>Image</th>
-                  <th>Video</th>       
                   <th>Title</th>    
                   <th>Author</th>       
                   <th>Subtitle</th>  

@@ -24,11 +24,11 @@ class ResearchFactory extends Factory
     {
         return [
             'thumbnail' => Storage::url('public/research/' . random_int(1, 30) . '.png'),
-            'video' => Storage::url('public/videos/' . random_int(1, 30) . '.mp4'),
+            'video' => Storage::url('public/videos/' . random_int(1, 2) . '.mp4'),
             'title' => ucwords($this->faker->words(6, true)),
             'subtitle' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nib.',
             'author' => $this->faker->lastName,
-            'content' => json_encode($this->faker->paragraphs(20)),
+            'content' => $this->faker->paragraphs(20,$asText = true),
             'published_at' => $this->faker->dateTimeBetween('-5 years', 'now'),
             'status'=>$this->faker->numberBetween(1,4),
         ];

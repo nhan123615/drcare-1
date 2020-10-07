@@ -71,7 +71,10 @@
                          Illuminate\Support\Facades\DB::table('doctor_types')->find($doctor->doctor_type_id)->name                    
                         }}
                     </td>
-                    <td>{{$doctor->photo}}</td>
+                    <td class="text-center">
+                      <img src="{{$doctor->photo}}" alt="" width="150" class="img-fluid img-thumbnail  rounded">
+                      
+                    </td>
                     <td>{{$doctor->description}}</td>
                     <td>
                       @if($doctor->status)
