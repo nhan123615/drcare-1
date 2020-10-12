@@ -51,7 +51,7 @@ class DoctorController extends Controller
             <a href="" onclick="
                     if(confirm('."'Are you sure, you want to delete this ?'".')){
                       event.preventDefault();
-                      document.getElementById('."delete-form-$data->id".').submit();
+                      document.getElementById('."'delete-form-$data->id'".').submit();
                     }else{
                       event.preventDefault();
                     }
