@@ -16,12 +16,14 @@ class CreateResearchTable extends Migration
         Schema::create('research', function (Blueprint $table) {
             $table->id();
             $table->foreignId('disease_type_id')->constrained();
-            $table->string('thumbnail', 255);
+            $table->string('thumbnail', 255)->nullable();
+            $table->string('video', 255)->nullable();
             $table->string('title', 255);
             $table->string('author', 255);
             $table->text('subtitle');
-            $table->json('content');
-            $table->dateTime('published_at');
+            $table->text('content');
+            $table->boolean('status');
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });
     }

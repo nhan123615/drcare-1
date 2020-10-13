@@ -16,4 +16,7 @@ class Doctor extends Model
     public function doctorType() {
         return $this->belongsTo(DoctorType::class);
     }
+    public function appointments(){
+        return $this->hasMany('App\Models\admin\appointment');
+    }
 }

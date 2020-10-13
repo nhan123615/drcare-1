@@ -37,11 +37,15 @@ Route::get('/products', function() {
     return view('drcare.pricing');
 });
 
+/* Route::resource('/appointment', 'App\Http\Controllers\Admin\AppointmentController'); */
 
+/* Route::get('/appointment',[DrCareController::class, 'doctor'])->name('appointment'); */
+Route::get('/appointment',[DrCareController::class, 'appointment'])->name('appointment');
 
-Route::get('/appointment', function() {
-    return view('drcare.appointment');
-})->name('appointment');
+/* Route::get('/appointment', function() { 
+    return view('drcare.appointment',compact('doctors'));
+})->name('appointment'); */
+
 Route::get('/blog', function() {
     return view('drcare.blog');
 })->name('blog');
@@ -59,4 +63,23 @@ Route::get('pricing', function() {
     return view('drcare.pricing');
 })->name('pricing');
 
+//admin
 
+
+
+Route::get('/admin/home', function() {
+    return view('admin.home');
+})->name('admin');
+//contacts
+Route::resource('/admin/contacts/appointment', 'App\Http\Controllers\Admin\AppointmentController');
+//doctors
+Route::resource('/admin/doctors/doctor', 'App\Http\Controllers\Admin\DoctorController');
+Route::resource('/admin/doctors/occupation', 'App\Http\Controllers\Admin\OccupationController');
+//researches
+Route::resource('/admin/researches/type', 'App\Http\Controllers\Admin\TypeController');
+Route::resource('/admin/researches/disease', 'App\Http\Controllers\Admin\DiseaseController');
+Route::resource('/admin/researches/research', 'App\Http\Controllers\Admin\ResearchController');
+//products
+Route::resource('/admin/products/category', 'App\Http\Controllers\Admin\CategoryController');
+Route::resource('/admin/products/image', 'App\Http\Controllers\Admin\ImageController');
+Route::resource('/admin/products/product', 'App\Http\Controllers\Admin\ProductController');

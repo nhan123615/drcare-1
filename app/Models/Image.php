@@ -11,4 +11,9 @@ class Image extends Model
     protected $fillable = [
         'image_url'
     ];
+
+    
+    public function products() {
+        return $this->belongsTo(Product::class);
+    }
 }

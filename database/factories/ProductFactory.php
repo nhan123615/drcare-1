@@ -29,6 +29,7 @@ class ProductFactory extends Factory
             'name' => ucwords($this->faker->word),
             'description' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 0, 100),
+            'status'=> $this->faker->numberBetween(0,1),
         ];
     }
 }

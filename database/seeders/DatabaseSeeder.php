@@ -6,6 +6,10 @@ use App\Models\DiseaseType;
 use Database\Factories\TestingFactory;
 use Illuminate\Database\Seeder;
 
+
+
+use App\Models\admin\appointment;
+/* use App\Models\Product; */
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,7 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DiseaseTypeSeeder::class,
             DoctorTypeSeeder::class,
-            CategorySeeder::class
+            CategorySeeder::class,
+            ImageSeeder::class
         ]);
+        appointment::factory(20)->create();
+       /*  Product::factory(30)->create(); */
     }
 }
