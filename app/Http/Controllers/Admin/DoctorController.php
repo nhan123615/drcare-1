@@ -34,6 +34,9 @@ class DoctorController extends Controller
          }
    
          return datatables()->of($data)
+
+         ->editColumn('status', '@if($status == 1) Pulish  @else Private @endif')
+
          ->addColumn('edit', function ($data) {
          return
          '<td>
@@ -58,12 +61,8 @@ class DoctorController extends Controller
                     ">
                     <i class="fa fa-trash  text-danger" aria-hidden="true"></i></a>
             </td>';
-           /*  return 
-            '<a href="" onclick="alert('."'abc'".')">
-                    <i class="fa fa-trash  text-danger" aria-hidden="true"></i>
-            </a>'; */
             })
-         -> rawColumns(['edit','delete'])
+         -> rawColumns(['status','edit','delete'])
 
     
       
