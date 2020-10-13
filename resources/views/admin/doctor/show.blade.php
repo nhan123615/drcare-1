@@ -48,12 +48,25 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="doctor_table" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>S.No</th>
                   <th>Doctor Name</th>
-                  <th>Occupation</th>
+                  <th>
+
+                    {{-- Occupation --}}
+                    <div class="form-group">    
+                      <select name="occupation" id="occupation" class="form-control">
+                        <option value="">Select All</option>
+                        @foreach($occupations as $occupation)
+                        <option value="{{$occupation->id}}" >{{$occupation->name}}</option>
+                        @endforeach
+                      </select>  
+                    </div>
+                   
+                    
+                  </th>
                   <th>Photo</th>       
                   <th>Description</th>    
                   <th>Status</th>       
@@ -61,7 +74,7 @@
                   <th>Delete</th>      
                 </tr>
                 </thead>
-                <tbody>
+            {{--     <tbody>
                   @foreach($doctors as $doctor)
                   <tr>
                     <td>{{$loop->index + 1}}</td>
@@ -104,8 +117,9 @@
                   </tr>    
                   @endforeach
                    
-                </tbody>
-                <tfoot>
+                </tbody> --}}
+
+      {{--           <tfoot>
                 <tr>
                   <th>S.No</th>
                   <th>Doctor Name</th>
@@ -116,7 +130,7 @@
                   <th>Edit</th>    
                   <th>Delete</th>   
                 </tr>
-                </tfoot>
+                </tfoot> --}}
               </table>
             </div>
             <!-- /.card-body -->
@@ -135,3 +149,47 @@
     <!-- /.content -->
   </div>
 @endsection
+
+@section('footer-section')
+
+
+<script>
+  $(document).ready(function(){
+  
+ fetch_data();
+
+function fetch_data(occupation = '')
+{
+ $('#doctor_table').DataTable({
+  processing: true,
+  serverSide: true,
+  ajax: {
+   url:"{{ route('doctor.index') }}",
+   data: {occupation:occupation}
+  },
+  columns:[
+   {  data: 'id',    name: 'id' },
+   { data: 'name',   name: 'name'  },
+   {  data: 'name', name: 'name',  orderable: false },
+   {   data:'photo',   name:'photo'  },
+   {   data:'description',   name:'description'  },
+   {   data:'status',   name:'status'  },
+   {data: 'edit', name: 'edit', orderable: false, searchable: false},
+   {data: 'delete', name: 'delete', orderable: false, searchable: false}
+  ]
+ });
+}
+
+$('#occupation').change(function(){
+ var occupation = $('#occupation').val();
+
+ $('#doctor_table').DataTable().destroy();
+
+ fetch_data(occupation);
+});
+   
+  });
+  </script>
+
+@endsection
+

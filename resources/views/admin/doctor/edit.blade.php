@@ -53,9 +53,7 @@
                 @foreach($occupations as $occupation)
                 <option value="{{$occupation->id}}" @if($doctor->doctor_type_id == $occupation->id)selected="selected"@endif>{{$occupation->name}}</option>
                 @endforeach
-              </select>
-               
-         
+              </select>  
             </div>
 
           </div>
